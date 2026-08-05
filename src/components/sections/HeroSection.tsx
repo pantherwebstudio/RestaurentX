@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown, Calendar, Utensils, Volume2, VolumeX, Music } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { ChevronDown, Calendar, Utensils } from 'lucide-react';
 import { RESTAURANT_INFO } from '@/data/restaurantData';
 
 interface HeroSectionProps {
@@ -11,97 +10,6 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSectionProps) {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMutedAutoplay, setIsMutedAutoplay] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    const savedState = sessionStorage.getItem('rx_music_state');
-    const shouldPlay = savedState !== 'off';
-    setIsPlaying(shouldPlay);
-
-    const audio = new Audio('/denis-pavlov-music-podcast-jazz-atmosphere-music-332653.mp3');
-    audio.loop = true;
-    audio.volume = 0.55;
-    audioRef.current = audio;
-
-    const enableUnmutedSound = () => {
-      if (sessionStorage.getItem('rx_music_state') !== 'off' && audioRef.current) {
-        audioRef.current.muted = false;
-        audioRef.current.volume = 0.55;
-        audioRef.current.play().then(() => {
-          setIsPlaying(true);
-          setIsMutedAutoplay(false);
-        }).catch(() => {});
-      }
-      removeListeners();
-    };
-
-    const events = ['click', 'pointerdown', 'touchstart', 'scroll', 'keydown', 'mousemove', 'pointermove'];
-
-    const removeListeners = () => {
-      events.forEach((evt) => {
-        window.removeEventListener(evt, enableUnmutedSound);
-        document.removeEventListener(evt, enableUnmutedSound);
-      });
-    };
-
-    if (shouldPlay) {
-      // 1. Try unmuted play immediately
-      audio.muted = false;
-      audio.volume = 0.55;
-      audio.play().then(() => {
-        setIsPlaying(true);
-        setIsMutedAutoplay(false);
-      }).catch(() => {
-        // 2. If browser blocks unmuted sound, play muted automatically (browser ALWAYS permits muted autoplay)
-        audio.muted = true;
-        audio.play().then(() => {
-          setIsPlaying(true);
-          setIsMutedAutoplay(true);
-        }).catch(() => {});
-
-        // 3. Attach gesture listeners to instantly unmute on first movement
-        events.forEach((evt) => {
-          window.addEventListener(evt, enableUnmutedSound, { passive: true, once: true });
-          document.addEventListener(evt, enableUnmutedSound, { passive: true, once: true });
-        });
-      });
-
-      return () => {
-        removeListeners();
-        audio.pause();
-        audio.src = '';
-      };
-    }
-
-    return () => {
-      audio.pause();
-      audio.src = '';
-    };
-  }, []);
-
-  const toggleMusic = () => {
-    if (!audioRef.current) return;
-
-    if (isPlaying && !isMutedAutoplay) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-      setIsMutedAutoplay(false);
-      sessionStorage.setItem('rx_music_state', 'off');
-    } else {
-      audioRef.current.muted = false;
-      audioRef.current.volume = 0.55;
-      audioRef.current.play().then(() => {
-        setIsPlaying(true);
-        setIsMutedAutoplay(false);
-        sessionStorage.setItem('rx_music_state', 'on');
-      }).catch((err) => {
-        console.error("Audio playback error:", err);
-      });
-    }
-  };
-
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-theme-primary text-theme-primary transition-colors duration-300">
       {/* Background Cinematic Looping Video */}
@@ -124,35 +32,6 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/75 to-[var(--bg-primary)]/90 transition-colors duration-300" />
         <div className="absolute inset-0 bg-grain pointer-events-none" />
       </div>
-
-      {/* Audio Autoplay Unmute Prompt Banner */}
-      {isMutedAutoplay && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute top-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-gold text-black font-bold text-xs shadow-2xl gold-glow cursor-pointer interactive"
-          onClick={toggleMusic}
-        >
-          <Music className="w-4 h-4 animate-bounce" />
-          <span>Tap anywhere to enable Jazz Atmosphere sound 🎵</span>
-        </motion.div>
-      )}
-
-      {/* Music Toggle Button */}
-      <button
-        onClick={toggleMusic}
-        className="absolute top-24 sm:top-28 right-4 sm:right-8 z-20 flex items-center gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-[#C6A15B]/50 glass-card text-xs backdrop-blur-md hover:border-[#C6A15B] transition-all interactive shadow-xl"
-        aria-label="Toggle jazz atmosphere music"
-      >
-        {isPlaying && !isMutedAutoplay ? (
-          <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C6A15B] animate-pulse" />
-        ) : (
-          <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-60" />
-        )}
-        <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-mono font-bold text-gold">
-          {isPlaying && !isMutedAutoplay ? 'Jazz Music: On' : 'Jazz Music: Tap for Sound'}
-        </span>
-      </button>
 
       {/* Main Hero Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-5 sm:space-y-8 pt-12 sm:pt-16">

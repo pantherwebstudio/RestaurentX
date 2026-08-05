@@ -25,18 +25,18 @@ export default function SpiceParticleCanvas() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Create High Resolution Delicate Gold Radial Particle Texture
-    const createCircleTexture = () => {
+    // Ultra-Fine Pinpoint Fire Sparkle Radial Texture
+    const createRealEmberTexture = () => {
       const canvas = document.createElement('canvas');
       canvas.width = 64;
       canvas.height = 64;
       const ctx = canvas.getContext('2d');
       if (ctx) {
         const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-        gradient.addColorStop(0, 'rgba(255, 225, 150, 1)');
-        gradient.addColorStop(0.4, 'rgba(212, 175, 55, 0.8)');
-        gradient.addColorStop(0.8, 'rgba(163, 121, 44, 0.3)');
-        gradient.addColorStop(1, 'rgba(163, 121, 44, 0)');
+        gradient.addColorStop(0, 'rgba(255, 255, 240, 1)');       // White-hot core
+        gradient.addColorStop(0.2, 'rgba(255, 180, 40, 0.95)');    // Intense gold-orange
+        gradient.addColorStop(0.5, 'rgba(235, 70, 10, 0.55)');     // Deep ember red
+        gradient.addColorStop(1, 'rgba(180, 20, 0, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(32, 32, 32, 0, Math.PI * 2);
@@ -45,33 +45,43 @@ export default function SpiceParticleCanvas() {
       return new THREE.CanvasTexture(canvas);
     };
 
-    const circleTexture = createCircleTexture();
+    const emberTexture = createRealEmberTexture();
 
-    // Particle Geometry & Material (Tiny Delicate Gold Dust Specks)
-    const particleCount = 220;
+    // Determine initial size: ultra tiny on mobile portrait (<640px)
+    const isMobile = window.innerWidth < 640;
+    const initialParticleSize = isMobile ? 0.38 : 0.6;
+
+    // Fire Sparkle Particles (Rising & Flickering Embers)
+    const particleCount = isMobile ? 180 : 260;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
-    const speeds = new Float32Array(particleCount);
+    const velocities = new Float32Array(particleCount * 3);
+    const phases = new Float32Array(particleCount);
 
     for (let i = 0; i < particleCount; i++) {
       const idx = i * 3;
-      positions[idx] = (Math.random() - 0.5) * 65;
+      positions[idx] = (Math.random() - 0.5) * 60;
       positions[idx + 1] = (Math.random() - 0.5) * 45;
-      positions[idx + 2] = (Math.random() - 0.5) * 35;
-      speeds[i] = 0.015 + Math.random() * 0.025;
+      positions[idx + 2] = (Math.random() - 0.5) * 30;
+
+      velocities[idx] = (Math.random() - 0.5) * 0.025;
+      velocities[idx + 1] = 0.025 + Math.random() * 0.035;
+      velocities[idx + 2] = (Math.random() - 0.5) * 0.025;
+
+      phases[i] = Math.random() * Math.PI * 2;
     }
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-    // Shader Material with Tiny Size 0.6
+    // Fiery Ember Shader Material with Additive Blending
     const material = new THREE.PointsMaterial({
-      color: 0xd4af37,
-      size: 0.6,
-      map: circleTexture,
+      color: 0xffaa22,
+      size: initialParticleSize,
+      map: emberTexture,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.85,
+      blending: THREE.AdditiveBlending,
       depthWrite: false,
-      alphaTest: 0.01,
     });
 
     const particles = new THREE.Points(geometry, material);
@@ -88,8 +98,10 @@ export default function SpiceParticleCanvas() {
 
     window.addEventListener('mousemove', onMouseMove, { passive: true });
 
-    // Handle Resize
+    // Handle Resize & Dynamic Mobile Size Adjustments
     const onWindowResize = () => {
+      const mobileNow = window.innerWidth < 640;
+      material.size = mobileNow ? 0.38 : 0.6;
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -97,26 +109,33 @@ export default function SpiceParticleCanvas() {
 
     window.addEventListener('resize', onWindowResize);
 
-    // Animation Loop
+    // Animation Loop with Flickering Ember Effect
     let reqId: number;
+    let clockTime = 0;
 
     const animate = () => {
+      clockTime += 0.03;
       const posArr = geometry.attributes.position.array as Float32Array;
 
       for (let i = 0; i < particleCount; i++) {
+        const xIdx = i * 3;
         const yIdx = i * 3 + 1;
-        posArr[yIdx] += speeds[i];
+
+        posArr[xIdx] += velocities[xIdx] + Math.sin(clockTime + phases[i]) * 0.012;
+        posArr[yIdx] += velocities[yIdx];
+
         if (posArr[yIdx] > 25) {
           posArr[yIdx] = -25;
+          posArr[xIdx] = (Math.random() - 0.5) * 60;
         }
       }
       geometry.attributes.position.needsUpdate = true;
 
-      particles.rotation.y += 0.0012;
-      particles.rotation.x += 0.0006;
+      // Realistic shimmer flicker
+      material.opacity = 0.75 + Math.sin(clockTime * 4) * 0.15;
 
-      camera.position.x += (mouseX * 2.0 - camera.position.x) * 0.04;
-      camera.position.y += (-mouseY * 2.0 - camera.position.y) * 0.04;
+      camera.position.x += (mouseX * 1.5 - camera.position.x) * 0.04;
+      camera.position.y += (-mouseY * 1.5 - camera.position.y) * 0.04;
 
       renderer.render(scene, camera);
       reqId = requestAnimationFrame(animate);
@@ -131,7 +150,7 @@ export default function SpiceParticleCanvas() {
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
-      circleTexture.dispose();
+      emberTexture.dispose();
       geometry.dispose();
       material.dispose();
       renderer.dispose();
