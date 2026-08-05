@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { X, Sparkles, Wine, MapPin, AlertTriangle } from 'lucide-react';
@@ -16,11 +17,23 @@ export default function ItemDetailModal({
   onClose,
   onOpenReservation,
 }: ItemDetailModalProps) {
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (item) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [item]);
+
   if (!item) return null;
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[9990] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      <div className="fixed inset-0 z-[9990] flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -36,19 +49,19 @@ export default function ItemDetailModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-3xl glass-card rounded-3xl overflow-hidden z-10 border border-[#C6A15B]/30 shadow-2xl text-theme-primary"
+          className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto glass-card rounded-3xl z-10 border border-[#C6A15B]/30 shadow-2xl text-theme-primary my-auto scrollbar-thin"
         >
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 p-2.5 rounded-full glass-card text-theme-primary hover:text-gold transition-colors interactive"
+            className="absolute top-4 right-4 z-20 p-2.5 rounded-full glass-card text-theme-primary hover:text-gold transition-colors interactive shadow-md"
           >
             <X className="w-5 h-5" />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left Image Showcase */}
-            <div className="relative h-56 sm:h-64 md:h-full min-h-[280px]">
+            <div className="relative h-56 sm:h-64 md:h-full min-h-[260px]">
               <Image
                 src={item.image}
                 alt={item.name}
@@ -80,7 +93,7 @@ export default function ItemDetailModal({
             </div>
 
             {/* Right Details */}
-            <div className="p-6 md:p-8 flex flex-col justify-between space-y-6 overflow-hidden">
+            <div className="p-5 sm:p-8 flex flex-col justify-between space-y-5 overflow-hidden">
               <div className="space-y-4">
                 <div>
                   {item.frenchName && (
@@ -129,7 +142,7 @@ export default function ItemDetailModal({
               </div>
 
               {/* Actions */}
-              <div className="pt-4 border-t border-[#C6A15B]/20">
+              <div className="pt-3 sm:pt-4 border-t border-[#C6A15B]/20">
                 <button
                   onClick={() => {
                     onClose();
