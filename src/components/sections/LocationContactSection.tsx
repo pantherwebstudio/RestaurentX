@@ -159,7 +159,7 @@ export default function LocationContactSection({ onOpenReservation }: LocationCo
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Karan Reddy"
+                      placeholder="e.g. Mirza Hassan Baig"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full rounded-lg px-4 py-2.5 text-xs focus:outline-none focus:border-[#C6A15B]"

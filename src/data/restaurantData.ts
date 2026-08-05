@@ -48,7 +48,7 @@ export const RESTAURANT_INFO = {
   name: "RestaurantX",
   tagline: "Haute Cuisine & Sensory Gastronomy",
   foundingYear: 2014,
-  chefName: "Chef Antoine Laurent",
+  chefName: "Chef Zaheer Farooqui",
   michelinStars: 3,
   address: "Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033, India",
   city: "Jubilee Hills, Hyderabad",
@@ -74,7 +74,7 @@ export const FEATURED_DISHES: MenuItem[] = [
     name: "A5 Miyazaki Wagyu Rossini",
     frenchName: "Filet de Bœuf Rossini aux Truffes",
     category: "chef-specialties",
-    description: "Pan-seared A5 Miyazaki Wagyu ribeye topped with Rougié Foie Gras, shaved Black Winter Périgord truffles, and a 48-hour bone marrow jus reduction.",
+    description: "Pan-seared A5 Miyazaki Wagyu ribeye infused with Kashmir saffron bone marrow reduction and shaved Black Winter Périgord truffles.",
     price: 14500,
     image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=85",
     isChefChoice: true,
@@ -82,7 +82,7 @@ export const FEATURED_DISHES: MenuItem[] = [
     winePairing: "Château Margaux Premier Grand Cru Classé 2015",
     allergens: ["Dairy"],
     calories: 780,
-    origin: "Miyazaki Prefecture, Japan"
+    origin: "Miyazaki & Kashmir Valley"
   },
   {
     id: "dish-2",
@@ -97,7 +97,7 @@ export const FEATURED_DISHES: MenuItem[] = [
     winePairing: "Domaine Leflaive Puligny-Montrachet 2020",
     allergens: ["Fish", "Sesame", "Soy"],
     calories: 420,
-    origin: "Brittany Coast, France"
+    origin: "Brittany Coast & Old City Hyderabad"
   },
   {
     id: "dish-3",
@@ -112,7 +112,7 @@ export const FEATURED_DISHES: MenuItem[] = [
     winePairing: "Meursault Premier Cru Les Perrières 2019",
     allergens: ["Shellfish", "Dairy"],
     calories: 510,
-    origin: "Saint-Malo, Brittany, France"
+    origin: "Saint-Malo & Jubilee Hills Estates"
   },
   {
     id: "dish-4",
@@ -127,7 +127,7 @@ export const FEATURED_DISHES: MenuItem[] = [
     winePairing: "Château d'Yquem Premier Cru Supérieur Sauternes 2014",
     allergens: ["Dairy", "Eggs", "Gluten"],
     calories: 620,
-    origin: "Tain-l'Hermitage, France"
+    origin: "Tain-l'Hermitage & Banjara Hills"
   }
 ];
 
@@ -138,7 +138,7 @@ export const FULL_MENU: MenuItem[] = [
     name: "Perigord Truffle Agnolotti",
     frenchName: "Agnolotti aux Truffes Noires",
     category: "mains",
-    description: "Handmade silk pasta filled with aged Parmigiano Reggiano Vacche Rosse mousse, black truffle emulsion, and hazelnut butter foam.",
+    description: "Handmade silk pasta filled with aged Parmigiano Reggiano Vacche Rosse mousse, black truffle emulsion, and toasted hazelnut foam.",
     price: 7200,
     image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=85",
     isVegetarian: true,
@@ -146,7 +146,7 @@ export const FULL_MENU: MenuItem[] = [
     winePairing: "Barolo Monfortino Riserva Giacomo Conterno 2013",
     allergens: ["Dairy", "Gluten", "Tree Nuts"],
     calories: 590,
-    origin: "Piedmont, Italy"
+    origin: "Piedmont & Kashmir"
   },
   {
     id: "dish-6",
@@ -160,11 +160,11 @@ export const FULL_MENU: MenuItem[] = [
     winePairing: "Kistler Vineyards Les Noisetiers Chardonnay 2021",
     allergens: ["Fish"],
     calories: 640,
-    origin: "Heard Island, Sub-Antarctica"
+    origin: "Sub-Antarctica & Hitec City"
   },
   {
     id: "dish-7",
-    name: "Wild Mushroom & Morel Tartlet",
+    name: "Wild Morel & Kashmiri Truffle Galette",
     frenchName: "Tartelette aux Morilles et Girolles",
     category: "starters",
     description: "Crisp buckwheat galette filled with sautéed Himalayan morels, black garlic purée, and toasted pine nut emulsion.",
@@ -175,21 +175,21 @@ export const FULL_MENU: MenuItem[] = [
     winePairing: "Domaine Dujac Clos de la Roche Grand Cru 2018",
     allergens: ["Gluten", "Tree Nuts"],
     calories: 380,
-    origin: "Kashmir Valley & Black Forest"
+    origin: "Kashmir Valley & Deccan Plateau"
   },
   {
     id: "dish-8",
     name: "Smoked Duck Breast & Foie Gras",
     frenchName: "Magret de Canard Fumé",
     category: "mains",
-    description: "Chalans duck breast slow-roasted over applewood, served with heirloom beet root textures and sour cherry jus.",
+    description: "Chalans duck breast slow-roasted over applewood, served with heirloom beet root textures and sour cherry reduction.",
     price: 8400,
     image: "https://images.unsplash.com/photo-1514944288352-fffac99f0bdf?auto=format&fit=crop&w=1200&q=85",
     isGlutenFree: true,
     winePairing: "Domaine de la Romanée-Conti Échezeaux 2016",
     allergens: ["Soy"],
     calories: 720,
-    origin: "Vendée, France"
+    origin: "Vendée & Gachibowli"
   },
   {
     id: "dish-9",
@@ -203,7 +203,7 @@ export const FULL_MENU: MenuItem[] = [
     winePairing: "Domaine Huet Vouvray Moelleux Le Haut-Lieu 2018",
     allergens: ["Gluten", "Dairy", "Eggs"],
     calories: 490,
-    origin: "Tahiti & Brittany"
+    origin: "Tahiti & Jubilee Hills"
   },
   {
     id: "dish-10",
@@ -233,7 +233,7 @@ export const STORY_TIMELINE = [
   {
     year: "2014",
     title: "The Vision",
-    description: "Chef Antoine Laurent establishes RestaurantX in Jubilee Hills, Hyderabad, creating a sanctuary of haute cuisine."
+    description: "Chef Zaheer Farooqui establishes RestaurantX in Jubilee Hills, Hyderabad, creating a sanctuary of haute gastronomy."
   },
   {
     year: "2017",
@@ -283,7 +283,7 @@ export const AWARDS: Award[] = [
     organization: "Wine Spectator",
     year: "2024",
     icon: "Wine",
-    description: "Recognizing our 3,200-bottle subterranean vault featuring rare vintage labels."
+    description: "Recognizing Master Sommelier Tariq Mansoor's 3,200-bottle subterranean vault."
   }
 ];
 
@@ -311,7 +311,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "g4",
-    title: "Master Chef Plating Artistry",
+    title: "Chef Zaheer Plating Artistry",
     category: "kitchen",
     image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=85",
     aspect: "wide"
@@ -338,27 +338,27 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "Michelin Guide Inspector",
     role: "Chief Dining Critic",
     source: "Michelin Guide 2025",
-    content: "Chef Antoine Laurent reaches unprecedented heights of gastronomic alchemy. Each plate is a symphony of flavor contrast, technical perfection, and theatrical presentation.",
+    content: "Chef Zaheer Farooqui reaches unprecedented heights of gastronomic alchemy. Each plate is a symphony of flavor contrast, technical perfection, and theatrical presentation.",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=85",
     date: "January 2025"
   },
   {
     id: "t2",
-    author: "Karan GVK",
+    author: "Nawab Tariq Ali Khan",
     role: "Private Collector & Connoisseur",
-    source: "Verified Dining Guest",
-    content: "The A5 Wagyu Rossini paired with the 2015 Château Margaux was singlehandedly the finest culinary experience of my lifetime. The atmosphere in Jubilee Hills is extraordinary.",
+    source: "Verified VIP Guest",
+    content: "The A5 Wagyu Rossini paired with Master Sommelier Tariq Mansoor's 2015 Château Margaux selection was singlehandedly the finest culinary experience in Hyderabad.",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=85",
     date: "December 2024"
   },
   {
     id: "t3",
-    author: "Shruti Reddy",
+    author: "Samiya Farooqui",
     role: "Food & Wine Magazine",
     source: "Editorial Review",
-    content: "From the custom gold-infused soundscape to the precise vintage wine pairings, RestaurantX sets the benchmark for luxury dining in Hyderabad.",
+    content: "From the gold-infused acoustic soundscape to the precise vintage wine pairings, RestaurantX in Jubilee Hills sets the benchmark for haute gastronomy in India.",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=85",
     date: "February 2025"

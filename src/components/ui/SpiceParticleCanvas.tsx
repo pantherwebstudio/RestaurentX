@@ -25,20 +25,21 @@ export default function SpiceParticleCanvas() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Create Circular Radial Texture for smooth round particles
+    // Create High Resolution Glowing Gold Radial Particle Texture
     const createCircleTexture = () => {
       const canvas = document.createElement('canvas');
-      canvas.width = 64;
-      canvas.height = 64;
+      canvas.width = 128;
+      canvas.height = 128;
       const ctx = canvas.getContext('2d');
       if (ctx) {
-        const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-        gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-        gradient.addColorStop(0.4, 'rgba(229, 195, 131, 0.8)');
-        gradient.addColorStop(1, 'rgba(198, 161, 91, 0)');
+        const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+        gradient.addColorStop(0, 'rgba(255, 225, 150, 1)');
+        gradient.addColorStop(0.3, 'rgba(212, 175, 55, 0.85)');
+        gradient.addColorStop(0.7, 'rgba(163, 121, 44, 0.4)');
+        gradient.addColorStop(1, 'rgba(163, 121, 44, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(32, 32, 32, 0, Math.PI * 2);
+        ctx.arc(64, 64, 64, 0, Math.PI * 2);
         ctx.fill();
       }
       return new THREE.CanvasTexture(canvas);
@@ -47,26 +48,28 @@ export default function SpiceParticleCanvas() {
     const circleTexture = createCircleTexture();
 
     // Particle Geometry & Material
-    const particleCount = 140;
+    const particleCount = 180;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
+    const speeds = new Float32Array(particleCount);
 
-    for (let i = 0; i < particleCount * 3; i += 3) {
-      positions[i] = (Math.random() - 0.5) * 60;
-      positions[i + 1] = (Math.random() - 0.5) * 40;
-      positions[i + 2] = (Math.random() - 0.5) * 30;
+    for (let i = 0; i < particleCount; i++) {
+      const idx = i * 3;
+      positions[idx] = (Math.random() - 0.5) * 65;
+      positions[idx + 1] = (Math.random() - 0.5) * 45;
+      positions[idx + 2] = (Math.random() - 0.5) * 35;
+      speeds[i] = 0.02 + Math.random() * 0.03;
     }
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-    // Gold Circular Shader Material
+    // Glowing Gold Circular Shader Material
     const material = new THREE.PointsMaterial({
-      color: 0xc6a15b,
-      size: 0.75,
+      color: 0xd4af37,
+      size: 2.2,
       map: circleTexture,
       transparent: true,
-      opacity: 0.65,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.85,
       depthWrite: false,
       alphaTest: 0.01,
     });
@@ -83,7 +86,7 @@ export default function SpiceParticleCanvas() {
       mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
     };
 
-    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
 
     // Handle Resize
     const onWindowResize = () => {
@@ -98,15 +101,25 @@ export default function SpiceParticleCanvas() {
     let reqId: number;
 
     const animate = () => {
-      const elapsedTime = performance.now() * 0.001;
+      const posArr = geometry.attributes.position.array as Float32Array;
+
+      // Float particles gently upwards
+      for (let i = 0; i < particleCount; i++) {
+        const yIdx = i * 3 + 1;
+        posArr[yIdx] += speeds[i];
+        if (posArr[yIdx] > 25) {
+          posArr[yIdx] = -25;
+        }
+      }
+      geometry.attributes.position.needsUpdate = true;
 
       // Slow rotation
-      particles.rotation.y = elapsedTime * 0.04;
-      particles.rotation.x = elapsedTime * 0.02;
+      particles.rotation.y += 0.0015;
+      particles.rotation.x += 0.0008;
 
       // Gentle camera sway
-      camera.position.x += (mouseX * 2 - camera.position.x) * 0.03;
-      camera.position.y += (-mouseY * 2 - camera.position.y) * 0.03;
+      camera.position.x += (mouseX * 2.5 - camera.position.x) * 0.04;
+      camera.position.y += (-mouseY * 2.5 - camera.position.y) * 0.04;
 
       renderer.render(scene, camera);
       reqId = requestAnimationFrame(animate);
@@ -131,7 +144,7 @@ export default function SpiceParticleCanvas() {
   return (
     <div
       ref={mountRef}
-      className="pointer-events-none fixed inset-0 z-0 opacity-80"
+      className="pointer-events-none fixed inset-0 z-10 opacity-90"
     />
   );
 }

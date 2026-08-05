@@ -79,7 +79,7 @@ export default function WhatsAppWidget() {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Eleanor Vance"
+                  placeholder="e.g. Samiya Farooqui"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-emerald-500"
