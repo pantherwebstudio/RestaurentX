@@ -12,7 +12,7 @@ interface FeaturedDishesSectionProps {
 
 export default function FeaturedDishesSection({ onSelectDish, onViewAllMenu }: FeaturedDishesSectionProps) {
   return (
-    <section id="featured-dishes" className="relative py-20 md:py-28 overflow-hidden border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section id="featured-dishes" className="relative py-20 md:py-28 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       {/* Background Accent */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 md:w-96 h-80 md:h-96 bg-[#C6A15B]/5 blur-[140px] pointer-events-none" />
 
@@ -22,18 +22,18 @@ export default function FeaturedDishesSection({ onSelectDish, onViewAllMenu }: F
           <div className="space-y-2 sm:space-y-3">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[#C6A15B]" />
-              <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B]">
+              <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
                 Culinary Highlights
               </span>
             </div>
-            <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light">
+            <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light text-theme-primary">
               Signature <span className="italic font-normal text-gold-gradient">Creations</span>
             </h2>
           </div>
 
           <button
             onClick={onViewAllMenu}
-            className="self-start md:self-end flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#C6A15B] hover:text-[#E5C383] transition-colors group interactive"
+            className="self-start md:self-end flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#C6A15B] hover:text-[#E5C383] transition-colors font-semibold group interactive"
           >
             <span>View Full Menu</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -71,7 +71,7 @@ export default function FeaturedDishesSection({ onSelectDish, onViewAllMenu }: F
                 )}
 
                 {/* Price tag */}
-                <div className="absolute bottom-3 right-3 bg-black/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#C6A15B]/50 font-mono text-xs sm:text-sm text-[#C6A15B] font-semibold">
+                <div className="absolute bottom-3 right-3 glass-card px-3 py-1 rounded-full border border-[#C6A15B]/50 font-mono text-xs sm:text-sm text-[#C6A15B] font-bold">
                   ₹{dish.price.toLocaleString('en-IN')}
                 </div>
               </div>
@@ -80,20 +80,20 @@ export default function FeaturedDishesSection({ onSelectDish, onViewAllMenu }: F
               <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
                 <div className="space-y-1">
                   {dish.frenchName && (
-                    <p className="font-serif-luxury text-xs text-[#C6A15B] italic">
+                    <p className="font-serif-luxury text-xs text-[#C6A15B] italic font-semibold">
                       {dish.frenchName}
                     </p>
                   )}
-                  <h3 className="font-serif-luxury text-lg sm:text-xl font-light group-hover:text-[#C6A15B] transition-colors">
+                  <h3 className="font-serif-luxury text-lg sm:text-xl font-light text-theme-primary group-hover:text-[#C6A15B] transition-colors">
                     {dish.name}
                   </h3>
-                  <p className="text-xs text-dim line-clamp-3 leading-relaxed font-sans-clean opacity-80">
+                  <p className="text-xs text-theme-muted line-clamp-3 leading-relaxed font-sans-clean">
                     {dish.description}
                   </p>
                 </div>
 
                 {dish.winePairing && (
-                  <div className="pt-2.5 border-t border-[#C6A15B]/15 flex items-center gap-2 text-[10px] text-[#C6A15B]">
+                  <div className="pt-2.5 border-t border-[#C6A15B]/15 flex items-center gap-2 text-[10px] text-[#C6A15B] font-semibold">
                     <Wine className="w-3.5 h-3.5 shrink-0" />
                     <span className="truncate italic">{dish.winePairing}</span>
                   </div>

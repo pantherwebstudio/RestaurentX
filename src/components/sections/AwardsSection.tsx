@@ -13,21 +13,21 @@ export default function AwardsSection() {
   };
 
   return (
-    <section id="awards" className="relative py-20 md:py-32 overflow-hidden border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section id="awards" className="relative py-20 md:py-32 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Header */}
         <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto mb-12 sm:mb-20">
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-[#C6A15B]" />
-            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B]">
+            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
               Accolades & Recognition
             </span>
             <span className="h-px w-8 bg-[#C6A15B]" />
           </div>
-          <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light">
+          <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light text-theme-primary">
             International Culinary <span className="italic font-normal text-gold-gradient">Distinctions</span>
           </h2>
-          <p className="text-xs md:text-sm font-sans-clean opacity-80 max-w-lg mx-auto">
+          <p className="text-xs md:text-sm font-sans-clean text-theme-muted max-w-lg mx-auto">
             Honored by the world’s most prestigious guides, critics, and culinary institutions.
           </p>
         </div>
@@ -53,15 +53,15 @@ export default function AwardsSection() {
                   <span className="font-mono text-xs text-[#C6A15B] tracking-widest uppercase font-semibold">
                     {award.year}
                   </span>
-                  <h3 className="font-serif-luxury text-xl sm:text-2xl font-light">
+                  <h3 className="font-serif-luxury text-xl sm:text-2xl font-light text-theme-primary">
                     {award.title}
                   </h3>
-                  <p className="text-xs text-[#C6A15B] font-medium">
+                  <p className="text-xs text-[#C6A15B] font-semibold">
                     {award.organization}
                   </p>
                 </div>
 
-                <p className="text-xs leading-relaxed font-sans-clean opacity-75">
+                <p className="text-xs leading-relaxed font-sans-clean text-theme-muted">
                   {award.description}
                 </p>
               </motion.div>

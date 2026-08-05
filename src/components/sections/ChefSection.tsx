@@ -14,7 +14,7 @@ export default function ChefSection() {
   ];
 
   return (
-    <section id="chef" className="relative py-20 md:py-32 overflow-hidden border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section id="chef" className="relative py-20 md:py-32 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Bio & Counter Stats */}
@@ -28,16 +28,16 @@ export default function ChefSection() {
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center gap-3">
                 <span className="h-px w-8 bg-[#C6A15B]" />
-                <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B]">
+                <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
                   Master Culinary Artisan
                 </span>
               </div>
-              <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light leading-tight">
+              <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light leading-tight text-theme-primary">
                 {RESTAURANT_INFO.chefName}
               </h2>
             </div>
 
-            <p className="text-xs md:text-sm leading-relaxed font-sans-clean opacity-85">
+            <p className="text-xs md:text-sm leading-relaxed font-sans-clean text-theme-muted">
               Trained under Paris’s legendary three-star masters at L’Ambroisie and Arpège, {RESTAURANT_INFO.chefName} combines classical French technique with modern flavor science. His philosophy centers around hyper-seasonal purity, micro-textures, and emotional storytelling through gastronomy.
             </p>
 
@@ -55,10 +55,10 @@ export default function ChefSection() {
                     className="p-3.5 sm:p-4 rounded-xl glass-card border border-[#C6A15B]/25 text-center space-y-1"
                   >
                     <IconComponent className="w-5 h-5 text-[#C6A15B] mx-auto mb-1" />
-                    <div className="font-mono text-2xl sm:text-3xl font-light text-[#C6A15B] font-bold">
+                    <div className="font-mono text-2xl sm:text-3xl text-[#C6A15B] font-bold">
                       {stat.value}
                     </div>
-                    <div className="text-[10px] uppercase tracking-wider opacity-75 font-mono">
+                    <div className="text-[10px] uppercase tracking-wider text-theme-muted font-mono font-semibold">
                       {stat.label}
                     </div>
                   </motion.div>
@@ -85,14 +85,14 @@ export default function ChefSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
 
-              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-black/75 backdrop-blur-md border border-[#C6A15B]/30 space-y-1 text-white">
-                <span className="text-[10px] uppercase tracking-widest text-[#C6A15B] font-mono">
+              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-xl glass-card border border-[#C6A15B]/30 space-y-1">
+                <span className="text-[10px] uppercase tracking-widest text-[#C6A15B] font-mono font-semibold">
                   Chef & Culinary Director
                 </span>
-                <h4 className="font-serif-luxury text-base sm:text-lg text-white">
+                <h4 className="font-serif-luxury text-base sm:text-lg text-theme-primary">
                   {RESTAURANT_INFO.chefName}
                 </h4>
-                <p className="text-[11px] text-gray-300 italic">
+                <p className="text-[11px] text-theme-muted italic">
                   “Gastronomy is the only art form that engages all five senses simultaneously.”
                 </p>
               </div>

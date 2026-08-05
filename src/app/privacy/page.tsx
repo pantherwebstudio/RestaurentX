@@ -10,43 +10,33 @@ export default function PrivacyPage() {
   const [reservationOpen, setReservationOpen] = useState(false);
 
   return (
-    <main className="bg-[#0D0D0D] text-[#F6F2ED] min-h-screen relative">
+    <main className="min-h-screen bg-theme-primary text-theme-primary transition-colors duration-300">
       <CustomCursor />
       <Navbar onOpenReservation={() => setReservationOpen(true)} />
 
-      <div className="pt-36 pb-24 max-w-4xl mx-auto px-6 space-y-8">
-        <div className="space-y-3 border-b border-[#C6A15B]/20 pb-8 text-center">
-          <span className="text-xs uppercase font-mono tracking-widest text-[#C6A15B]">
-            Legal & Compliance
-          </span>
-          <h1 className="font-serif-luxury text-4xl md:text-5xl font-light">
-            Privacy Policy
-          </h1>
-          <p className="text-xs text-[#D1C9BE]/60">
-            Last Updated: January 2025
-          </p>
-        </div>
+      <div className="relative pt-36 pb-20 border-b border-[#C6A15B]/20 bg-theme-secondary text-center px-6">
+        <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
+          Legal & Privacy
+        </span>
+        <h1 className="font-serif-luxury text-4xl sm:text-6xl font-light mt-3 text-theme-primary">
+          Privacy <span className="italic font-normal text-gold-gradient">Policy</span>
+        </h1>
+      </div>
 
-        <div className="space-y-6 text-xs text-[#D1C9BE]/80 leading-relaxed font-sans-clean">
+      <div className="max-w-4xl mx-auto px-6 py-16 space-y-8 text-xs sm:text-sm text-theme-muted font-sans-clean leading-relaxed">
+        <section className="glass-card p-6 sm:p-8 rounded-2xl border border-[#C6A15B]/20 space-y-4">
+          <h2 className="font-serif-luxury text-xl text-theme-primary font-semibold">1. Guest Information Confidentiality</h2>
           <p>
-            RestaurantX (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) values your privacy and is committed to protecting your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018.
+            At RestaurantX Hyderabad, we respect the privacy of our dining guests. All reservation details, dietary preferences, personal contact numbers, and payment details submitted online or via our WhatsApp Concierge are handled with absolute confidentiality and encrypted.
           </p>
+        </section>
 
-          <h3 className="font-serif-luxury text-lg text-[#F6F2ED]">1. Information We Collect</h3>
+        <section className="glass-card p-6 sm:p-8 rounded-2xl border border-[#C6A15B]/20 space-y-4">
+          <h2 className="font-serif-luxury text-xl text-theme-primary font-semibold">2. Communication & Updates</h2>
           <p>
-            When reserving a table, subscribing to our private dining newsletter, or contacting our concierge, we collect your name, email address, telephone number, dietary preferences, and payment verification details.
+            We use your provided phone number and email exclusively for table reservation confirmations, dining concierge notifications, and private wine club releases if opted in. We never share or sell guest data to third-party advertisers.
           </p>
-
-          <h3 className="font-serif-luxury text-lg text-[#F6F2ED]">2. How We Use Your Data</h3>
-          <p>
-            Your information is strictly utilized to process table bookings, communicate dietary requirements to our culinary team, and send invited updates regarding seasonal tasting releases.
-          </p>
-
-          <h3 className="font-serif-luxury text-lg text-[#F6F2ED]">3. Data Sharing & Third Parties</h3>
-          <p>
-            We never sell or rent guest data to third parties. Data is shared exclusively with trusted reservation handling partners (e.g. SevenRooms / WhatsApp API) for booking confirmation purposes.
-          </p>
-        </div>
+        </section>
       </div>
 
       <Footer />

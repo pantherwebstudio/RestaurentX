@@ -24,21 +24,21 @@ export default function MasonryGallerySection() {
   }, [activeTab]);
 
   return (
-    <section id="gallery" className="relative py-20 md:py-32 overflow-hidden border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section id="gallery" className="relative py-20 md:py-32 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Header */}
         <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-[#C6A15B]" />
-            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B]">
+            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
               Visual Anthology
             </span>
             <span className="h-px w-8 bg-[#C6A15B]" />
           </div>
-          <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light">
+          <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light text-theme-primary">
             Ambience & <span className="italic font-normal text-gold-gradient">Gastronomy</span>
           </h2>
-          <p className="text-xs md:text-sm font-sans-clean opacity-80 max-w-lg mx-auto">
+          <p className="text-xs md:text-sm font-sans-clean text-theme-muted max-w-lg mx-auto">
             A glimpse inside our sanctuary of light, texture, and rare luxury in {RESTAURANT_INFO.city}.
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function MasonryGallerySection() {
               className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs tracking-wider uppercase transition-all whitespace-nowrap interactive ${
                 activeTab === cat.id
                   ? 'bg-[#C6A15B] text-black font-bold shadow-md'
-                  : 'glass-card text-dim border border-[#C6A15B]/20 hover:border-[#C6A15B]'
+                  : 'glass-card text-theme-muted border border-[#C6A15B]/20 hover:border-[#C6A15B]'
               }`}
             >
               {cat.label}
@@ -86,7 +86,7 @@ export default function MasonryGallerySection() {
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#C6A15B] font-semibold">
                   {item.category}
                 </span>
-                <h3 className="font-serif-luxury text-lg sm:text-xl text-white">
+                <h3 className="font-serif-luxury text-lg sm:text-xl text-white font-medium">
                   {item.title}
                 </h3>
                 <Maximize2 className="w-5 h-5 text-[#C6A15B] absolute top-4 right-4" />
@@ -134,14 +134,14 @@ export default function MasonryGallerySection() {
 
               <div className="p-4 sm:p-6 glass-card border-t border-[#C6A15B]/20 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] uppercase font-mono tracking-widest text-[#C6A15B]">
+                  <span className="text-[10px] uppercase font-mono tracking-widest text-[#C6A15B] font-semibold">
                     {selectedImage.category}
                   </span>
-                  <h3 className="font-serif-luxury text-lg sm:text-xl font-medium">
+                  <h3 className="font-serif-luxury text-lg sm:text-xl font-medium text-theme-primary">
                     {selectedImage.title}
                   </h3>
                 </div>
-                <span className="text-xs opacity-60 hidden sm:inline">
+                <span className="text-xs text-theme-muted hidden sm:inline">
                   {RESTAURANT_INFO.name} Collection
                 </span>
               </div>

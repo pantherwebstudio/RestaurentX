@@ -10,39 +10,33 @@ export default function TermsPage() {
   const [reservationOpen, setReservationOpen] = useState(false);
 
   return (
-    <main className="bg-[#0D0D0D] text-[#F6F2ED] min-h-screen relative">
+    <main className="min-h-screen bg-theme-primary text-theme-primary transition-colors duration-300">
       <CustomCursor />
       <Navbar onOpenReservation={() => setReservationOpen(true)} />
 
-      <div className="pt-36 pb-24 max-w-4xl mx-auto px-6 space-y-8">
-        <div className="space-y-3 border-b border-[#C6A15B]/20 pb-8 text-center">
-          <span className="text-xs uppercase font-mono tracking-widest text-[#C6A15B]">
-            Guest Policies
-          </span>
-          <h1 className="font-serif-luxury text-4xl md:text-5xl font-light">
-            Terms of Experience
-          </h1>
-          <p className="text-xs text-[#D1C9BE]/60">
-            Bandra West Mumbai Guidelines
-          </p>
-        </div>
+      <div className="relative pt-36 pb-20 border-b border-[#C6A15B]/20 bg-theme-secondary text-center px-6">
+        <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
+          Guest Guidelines
+        </span>
+        <h1 className="font-serif-luxury text-4xl sm:text-6xl font-light mt-3 text-theme-primary">
+          Terms of <span className="italic font-normal text-gold-gradient">Experience</span>
+        </h1>
+      </div>
 
-        <div className="space-y-6 text-xs text-[#D1C9BE]/80 leading-relaxed font-sans-clean">
-          <h3 className="font-serif-luxury text-lg text-[#F6F2ED]">1. Dress Code</h3>
+      <div className="max-w-4xl mx-auto px-6 py-16 space-y-8 text-xs sm:text-sm text-theme-muted font-sans-clean leading-relaxed">
+        <section className="glass-card p-6 sm:p-8 rounded-2xl border border-[#C6A15B]/20 space-y-4">
+          <h2 className="font-serif-luxury text-xl text-theme-primary font-semibold">1. Reservation Policy</h2>
           <p>
-            To maintain an exquisite ambience for all guests, RestaurantX observes an Elegant / Formal dress code. Jackets are encouraged for gentlemen. Athletic wear, casual shorts, flip-flops, and sports caps are strictly prohibited.
+            To maintain our intimate culinary atmosphere, reservations are required. Table holds are honored up to 15 minutes past the reserved seating time. Cancellations should be notified via WhatsApp at least 24 hours prior.
           </p>
+        </section>
 
-          <h3 className="font-serif-luxury text-lg text-[#F6F2ED]">2. Cancellation Policy</h3>
+        <section className="glass-card p-6 sm:p-8 rounded-2xl border border-[#C6A15B]/20 space-y-4">
+          <h2 className="font-serif-luxury text-xl text-theme-primary font-semibold">2. Dress Code & Atmosphere</h2>
           <p>
-            Reservations may be cancelled up to 48 hours prior to service without penalty. Cancellations within 48 hours or no-shows may incur a cancellation fee of ₹5,000 per guest.
+            We require Elegant Smart Casual attire in the Main Dining Room and Sommelier Vault. Flash photography and loud device usage are discouraged to maintain an acoustic soundscape for all guests.
           </p>
-
-          <h3 className="font-serif-luxury text-lg text-[#F6F2ED]">3. Punctuality</h3>
-          <p>
-            Tables will be held for up to 20 minutes past the reserved seating time before release to our waiting list.
-          </p>
-        </div>
+        </section>
       </div>
 
       <Footer />

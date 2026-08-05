@@ -38,7 +38,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section className="relative py-20 md:py-32 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       {/* Glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-80 md:w-96 h-80 md:h-96 bg-[#C6A15B]/5 blur-[140px] pointer-events-none" />
 
@@ -47,15 +47,15 @@ export default function ExperienceSection() {
         <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto mb-12 sm:mb-20">
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-[#C6A15B]" />
-            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B]">
+            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
               The RestaurantX Experience
             </span>
             <span className="h-px w-8 bg-[#C6A15B]" />
           </div>
-          <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light">
+          <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light text-theme-primary">
             Sensory Pillars of <span className="italic font-normal text-gold-gradient">Perfection</span>
           </h2>
-          <p className="text-xs md:text-sm font-sans-clean opacity-80 max-w-lg mx-auto">
+          <p className="text-xs md:text-sm font-sans-clean text-theme-muted max-w-lg mx-auto">
             Beyond cuisine—an immersion into sound, architecture, rarity, and hospitality.
           </p>
         </div>
@@ -77,11 +77,11 @@ export default function ExperienceSection() {
                   <IconComponent className="w-6 h-6" />
                 </div>
 
-                <h3 className="font-serif-luxury text-lg sm:text-xl font-light group-hover:text-[#C6A15B] transition-colors">
+                <h3 className="font-serif-luxury text-lg sm:text-xl font-light text-theme-primary group-hover:text-[#C6A15B] transition-colors">
                   {exp.title}
                 </h3>
 
-                <p className="text-xs leading-relaxed font-sans-clean opacity-80">
+                <p className="text-xs leading-relaxed font-sans-clean text-theme-muted">
                   {exp.description}
                 </p>
               </motion.div>

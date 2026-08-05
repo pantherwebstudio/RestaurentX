@@ -20,18 +20,18 @@ export default function TestimonialsSection() {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section className="relative py-20 md:py-32 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Header */}
         <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-[#C6A15B]" />
-            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B]">
+            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
               Critical Acclaim
             </span>
             <span className="h-px w-8 bg-[#C6A15B]" />
           </div>
-          <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light">
+          <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light text-theme-primary">
             Voices of <span className="italic font-normal text-gold-gradient">Connoisseurs</span>
           </h2>
         </div>
@@ -56,7 +56,7 @@ export default function TestimonialsSection() {
                 ))}
               </div>
 
-              <p className="font-serif-luxury text-lg sm:text-2xl md:text-3xl font-light italic leading-relaxed">
+              <p className="font-serif-luxury text-lg sm:text-2xl md:text-3xl font-light italic leading-relaxed text-theme-primary">
                 “{current.content}”
               </p>
 
@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
                   />
                 </div>
                 <div className="text-left space-y-0.5">
-                  <h4 className="font-serif-luxury text-sm sm:text-base font-semibold">
+                  <h4 className="font-serif-luxury text-sm sm:text-base font-semibold text-theme-primary">
                     {current.author}
                   </h4>
                   <p className="text-xs text-[#C6A15B] font-medium">
