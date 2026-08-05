@@ -68,21 +68,21 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'glass-nav py-4 shadow-2xl'
-            : 'bg-gradient-to-b from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/50 to-transparent py-6'
+            ? 'glass-nav py-3.5 shadow-2xl'
+            : 'bg-gradient-to-b from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/50 to-transparent py-4 sm:py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#C6A15B]/40 bg-theme-secondary group-hover:border-[#C6A15B] transition-colors">
-              <Award className="h-5 w-5 text-[#C6A15B]" />
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
+            <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-[#C6A15B]/40 bg-theme-secondary group-hover:border-[#C6A15B] transition-colors shrink-0">
+              <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[#C6A15B]" />
             </div>
             <div>
-              <span className="font-serif-luxury text-2xl font-light tracking-widest text-theme-primary group-hover:text-[#C6A15B] transition-colors">
+              <span className="font-serif-luxury text-lg sm:text-2xl font-light tracking-wider sm:tracking-widest text-theme-primary group-hover:text-[#C6A15B] transition-colors">
                 RESTAURANT<span className="text-[#C6A15B] italic font-normal">X</span>
               </span>
-              <div className="flex items-center gap-1.5 text-[10px] tracking-widest text-[#C6A15B] font-mono font-semibold">
+              <div className="hidden sm:flex items-center gap-1.5 text-[10px] tracking-widest text-[#C6A15B] font-mono font-semibold">
                 <span>★★★ MICHELIN</span>
               </div>
             </div>
@@ -114,11 +114,11 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
           </nav>
 
           {/* CTA, Theme Toggle & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-full border border-[#C6A15B]/40 bg-theme-secondary text-[#C6A15B] hover:border-[#C6A15B] hover:scale-105 transition-all interactive shadow-md"
+              className="p-2 sm:p-2.5 rounded-full border border-[#C6A15B]/40 bg-theme-secondary text-[#C6A15B] hover:border-[#C6A15B] hover:scale-105 transition-all interactive shadow-md"
               title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
               aria-label="Toggle theme"
             >
@@ -135,10 +135,10 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-full border border-[#C6A15B]/30 bg-theme-secondary text-theme-primary hover:text-[#C6A15B] transition-colors interactive"
+              className="lg:hidden p-2 sm:p-2.5 rounded-full border border-[#C6A15B]/30 bg-theme-secondary text-theme-primary hover:text-[#C6A15B] transition-colors interactive"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-[#C6A15B]" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6 text-[#C6A15B]" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
@@ -151,24 +151,24 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
             initial={{ opacity: 0, y: '-100%' }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
-            transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1] }}
-            className="fixed inset-0 z-40 bg-theme-primary text-theme-primary flex flex-col justify-between p-8 md:p-12 lg:hidden pt-28 border-b border-[#C6A15B]/20"
+            transition={{ duration: 0.4, ease: [0.77, 0, 0.175, 1] }}
+            className="fixed inset-0 z-40 bg-theme-primary text-theme-primary flex flex-col justify-between p-6 sm:p-8 md:p-12 lg:hidden pt-24 sm:pt-28 border-b border-[#C6A15B]/20"
           >
-            <div className="flex flex-col gap-6">
-              <span className="text-[10px] tracking-[0.4em] uppercase text-[#C6A15B] font-semibold">
-                Navigation Menu
+            <div className="flex flex-col gap-5 sm:gap-6">
+              <span className="text-[10px] tracking-[0.4em] uppercase text-[#C6A15B] font-bold">
+                Navigation Menu • ★★★ MICHELIN
               </span>
               {navLinks.map((link, idx) => (
                 <motion.div
                   key={link.name}
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + idx * 0.08 }}
+                  transition={{ delay: 0.1 + idx * 0.06 }}
                 >
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-serif-luxury text-3xl font-light tracking-wider text-theme-primary hover:text-[#C6A15B] transition-colors"
+                    className="font-serif-luxury text-2xl sm:text-3xl font-light tracking-wider text-theme-primary hover:text-[#C6A15B] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -176,13 +176,13 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
               ))}
             </div>
 
-            <div className="space-y-6 pt-6 border-t border-[#C6A15B]/15">
+            <div className="space-y-4 sm:space-y-6 pt-4 border-t border-[#C6A15B]/15">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenReservation();
                 }}
-                className="w-full py-4 rounded-full bg-gradient-to-r from-emerald-600 to-green-700 text-white font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg"
+                className="w-full py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-emerald-600 to-green-700 text-white font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg"
               >
                 <Smartphone className="w-4 h-4" />
                 <span>Reserve Table via WhatsApp</span>
