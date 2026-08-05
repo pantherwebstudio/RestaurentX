@@ -18,7 +18,6 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Check initial saved theme or default to dark
     const savedTheme = localStorage.getItem('rx_theme') as 'dark' | 'light' | null;
     if (savedTheme) {
       setTheme(savedTheme);
@@ -70,20 +69,20 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? 'glass-nav py-4 shadow-2xl'
-            : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-6'
+            : 'bg-gradient-to-b from-[var(--bg-primary)]/90 via-[var(--bg-primary)]/40 to-transparent py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#C6A15B]/40 bg-[#141414] group-hover:border-[#C6A15B] transition-colors">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#C6A15B]/40 bg-theme-secondary group-hover:border-[#C6A15B] transition-colors">
               <Award className="h-5 w-5 text-[#C6A15B]" />
             </div>
             <div>
-              <span className="font-serif-luxury text-2xl font-light tracking-widest text-[#F6F2ED] group-hover:text-[#C6A15B] transition-colors">
+              <span className="font-serif-luxury text-2xl font-light tracking-widest text-theme-primary group-hover:text-[#C6A15B] transition-colors">
                 RESTAURANT<span className="text-[#C6A15B] italic font-normal">X</span>
               </span>
-              <div className="flex items-center gap-1.5 text-[10px] tracking-widest text-[#C6A15B] font-mono">
+              <div className="flex items-center gap-1.5 text-[10px] tracking-widest text-[#C6A15B] font-mono font-semibold">
                 <span>★★★ MICHELIN</span>
               </div>
             </div>
@@ -97,8 +96,8 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative text-xs uppercase tracking-[0.25em] transition-colors hover:text-[#C6A15B] ${
-                    isActive ? 'text-[#C6A15B] font-semibold' : 'text-[#F6F2ED]/80'
+                  className={`relative text-xs uppercase tracking-[0.25em] transition-colors hover:text-[#C6A15B] font-semibold ${
+                    isActive ? 'text-[#C6A15B]' : 'text-theme-primary'
                   }`}
                 >
                   {link.name}
@@ -119,7 +118,7 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-full border border-[#C6A15B]/30 bg-[#141414] text-[#C6A15B] hover:border-[#C6A15B] hover:scale-105 transition-all interactive"
+              className="p-2.5 rounded-full border border-[#C6A15B]/40 bg-theme-secondary text-[#C6A15B] hover:border-[#C6A15B] hover:scale-105 transition-all interactive shadow-md"
               title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
               aria-label="Toggle theme"
             >
@@ -128,7 +127,7 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
 
             <button
               onClick={onOpenReservation}
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/60 bg-emerald-950/40 text-emerald-300 text-xs uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-lg interactive"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/60 bg-emerald-600/10 text-emerald-600 dark:text-emerald-300 font-semibold text-xs uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-lg interactive"
             >
               <Smartphone className="w-3.5 h-3.5" />
               <span>WhatsApp Booking</span>
@@ -136,7 +135,7 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-full border border-[#C6A15B]/30 bg-[#141414] text-[#F6F2ED] hover:text-[#C6A15B] transition-colors interactive"
+              className="lg:hidden p-2.5 rounded-full border border-[#C6A15B]/30 bg-theme-secondary text-theme-primary hover:text-[#C6A15B] transition-colors interactive"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-[#C6A15B]" /> : <Menu className="w-6 h-6" />}
@@ -153,10 +152,10 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
             transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1] }}
-            className="fixed inset-0 z-40 bg-[#0D0D0D] flex flex-col justify-between p-8 md:p-12 lg:hidden pt-28 border-b border-[#C6A15B]/20"
+            className="fixed inset-0 z-40 bg-theme-primary text-theme-primary flex flex-col justify-between p-8 md:p-12 lg:hidden pt-28 border-b border-[#C6A15B]/20"
           >
             <div className="flex flex-col gap-6">
-              <span className="text-[10px] tracking-[0.4em] uppercase text-[#C6A15B]">
+              <span className="text-[10px] tracking-[0.4em] uppercase text-[#C6A15B] font-semibold">
                 Navigation Menu
               </span>
               {navLinks.map((link, idx) => (
@@ -169,7 +168,7 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-serif-luxury text-3xl font-light tracking-wider text-[#F6F2ED] hover:text-[#C6A15B] transition-colors"
+                    className="font-serif-luxury text-3xl font-light tracking-wider text-theme-primary hover:text-[#C6A15B] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -183,13 +182,13 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
                   setMobileMenuOpen(false);
                   onOpenReservation();
                 }}
-                className="w-full py-4 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-medium text-xs tracking-widest uppercase flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+                className="w-full py-4 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-semibold text-xs tracking-widest uppercase flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg"
               >
                 <Smartphone className="w-4 h-4" />
                 <span>Reserve Table via WhatsApp</span>
               </button>
 
-              <div className="flex items-center justify-between text-xs text-[#D1C9BE]/70">
+              <div className="flex items-center justify-between text-xs text-theme-muted">
                 <a href={`tel:${RESTAURANT_INFO.phone}`} className="flex items-center gap-2 hover:text-[#C6A15B]">
                   <Smartphone className="w-3.5 h-3.5 text-[#C6A15B]" />
                   <span>{RESTAURANT_INFO.phone}</span>
