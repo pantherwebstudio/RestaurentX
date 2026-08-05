@@ -1,0 +1,690 @@
+🍽️ Project Name
+RestaurantX — Premium Restaurant Website Template
+Objective
+
+Create a premium, award-winning, ultra-modern restaurant website inspired by Awwwards winners, built for speed, SEO, and conversions.
+
+Target Audience:
+
+Fine Dining
+Rooftop Restaurants
+Cafés
+Luxury Hotels
+Cloud Kitchens
+Resorts
+Bakeries
+Design Philosophy
+
+The website should feel like
+
+Michelin Star Restaurant
+Apple Website smoothness
+Porsche luxury
+Cinematic storytelling
+Editorial magazine
+Minimal but premium
+
+Not
+
+❌ Bootstrap Template
+
+❌ WordPress Theme
+
+❌ Restaurant CMS
+
+Instead
+
+✅ Luxury Brand Experience
+
+Design Style
+
+Theme
+
+Modern Luxury
+
+Dark Mode
+
+Matte Black (#0D0D0D)
+
+Warm White (#F6F2ED)
+
+Gold Accent (#C6A15B)
+
+Deep Brown (#3A2D25)
+
+Smooth Glass Effects
+
+Soft Shadows
+
+Large Typography
+
+Massive White Space
+
+Premium Animations
+
+Tech Stack
+
+Frontend
+
+Next.js 16
+React 19
+TypeScript
+
+Styling
+
+Tailwind CSS
+shadcn/ui
+Class Variance Authority
+tailwind-merge
+
+Animations
+
+GSAP
+Framer Motion
+Lenis (Smooth Scrolling)
+SplitType
+Motion One (optional)
+
+3D
+
+Three.js
+React Three Fiber
+Drei
+
+Images
+
+next/image
+
+Icons
+
+Lucide React
+
+Carousel
+
+Embla Carousel
+
+Gallery
+
+LightGallery
+
+Forms
+
+React Hook Form
+
+Validation
+
+Zod
+
+SEO
+
+next-seo
+next-sitemap
+
+Performance
+
+Vercel Analytics
+Speed Insights
+
+Fonts
+
+Playfair Display
+Cormorant Garamond
+DM Sans
+
+Deployment
+
+Vercel
+Folder Structure
+app/
+
+components/
+
+sections/
+
+hooks/
+
+utils/
+
+animations/
+
+constants/
+
+public/
+
+fonts/
+
+images/
+
+videos/
+
+Website Flow
+Loading Screen
+
+↓
+
+Hero
+
+↓
+
+Featured Dishes
+
+↓
+
+Restaurant Story
+
+↓
+
+Chef Section
+
+↓
+
+Menu
+
+↓
+
+Gallery
+
+↓
+
+Experience Section
+
+↓
+
+Testimonials
+
+↓
+
+Awards
+
+↓
+
+Location
+
+↓
+
+Reservation CTA
+
+↓
+
+Footer
+Hero Section
+
+Height
+
+100vh
+
+Background
+
+Full-screen cinematic looping video.
+
+Examples
+
+Chef cooking
+
+Fire
+
+Steak
+
+Wine pouring
+
+Coffee making
+
+Smoke
+
+Lighting
+
+Overlay
+
+40% dark gradient
+
+Content
+
+Restaurant Logo
+
+Luxury Heading
+
+Small Description
+
+Reserve Table Button
+
+Explore Menu Button
+
+Scroll Indicator
+
+Animation
+
+Split text
+
+Fade
+
+Zoom
+
+Parallax
+
+Mouse movement
+
+Premium Hero Effects
+
+Slow Zoom
+
+Smoke Overlay
+
+Film Grain
+
+Floating Particles
+
+Gradient Glow
+
+Parallax
+
+Cursor Spotlight
+
+Text Reveal
+
+Video Blur Transition
+
+Navigation
+
+Transparent
+
+Glass Morphism
+
+Appears after scrolling
+
+Contains
+
+Logo
+
+Home
+
+Menu
+
+About
+
+Gallery
+
+Reservations
+
+Contact
+
+Book Table CTA
+
+Mobile
+
+Fullscreen Navigation
+
+Luxury animation
+
+Featured Dishes
+
+Large cards
+
+Huge images
+
+Hover
+
+Image zoom
+
+Reveal animation
+
+Price
+
+Category
+
+Chef Recommendation Badge
+
+Story Section
+
+Editorial layout
+
+One large image
+
+One text column
+
+Large typography
+
+Quote
+
+Signature
+
+Timeline
+
+Chef Section
+
+Large portrait
+
+Chef introduction
+
+Experience
+
+Awards
+
+Signature dishes
+
+Animated number counters
+
+Menu Section
+
+Restaurant menu card design
+
+Categories
+
+Starters
+
+Main Course
+
+Desserts
+
+Drinks
+
+Each card
+
+Image
+
+Name
+
+Description
+
+Price
+
+Chef Choice
+
+Vegetarian icon
+
+Spicy icon
+
+Gallery
+
+Pinterest-style Masonry Layout
+
+Hover animations
+
+Lightbox
+
+Video support
+
+Lazy loading
+
+Experience Section
+
+Why choose us
+
+Fresh ingredients
+
+Organic
+
+Luxury ambience
+
+Master chefs
+
+Live music
+
+Premium wines
+
+Each card animated
+
+Reservation CTA
+
+Luxury card
+
+Large background
+
+CTA
+
+Reserve Table
+
+Call Restaurant
+
+WhatsApp Reservation
+
+WhatsApp Integration
+
+Floating WhatsApp Button
+
+When clicked
+
+Hello,
+
+I would like to reserve a table.
+
+Name:
+
+Guests:
+
+Date:
+
+Time:
+
+Thank you.
+
+It should open WhatsApp instantly.
+
+Also add
+
+Reserve via WhatsApp
+
+Book instantly
+
+Testimonials
+
+Large cards
+
+Glass effect
+
+Customer photos
+
+Ratings
+
+Animated slider
+
+Awards Section
+
+Luxury badges
+
+Michelin
+
+Best Restaurant
+
+Chef Awards
+
+Food Festival
+
+(animated placeholders)
+
+Instagram Feed
+
+3x2 grid
+
+Hover
+
+Open Instagram
+
+Contact
+
+Map
+
+Working Hours
+
+Phone
+
+Email
+
+Address
+
+Directions Button
+
+Footer
+
+Luxury
+
+Logo
+
+Links
+
+Social
+
+Newsletter
+
+Copyright
+
+Micro Interactions
+
+Every button
+
+Ripple
+
+Scale
+
+Glow
+
+Every image
+
+Zoom
+
+Tilt
+
+Fade
+
+Text
+
+Character animation
+
+Hover
+
+Gradient
+
+Cursor
+
+Custom
+
+Cursor
+
+Luxury cursor
+
+Circle
+
+Follower
+
+Hover grow
+
+Magnetic buttons
+
+Scroll Animations
+
+GSAP
+
+Split text
+
+Parallax
+
+Fade
+
+Scale
+
+Pin sections
+
+Horizontal gallery
+
+Reveal masks
+
+Image clipping
+
+3D Features (Minimal)
+
+Use Three.js only where it enhances the experience without hurting performance:
+
+Floating 3D spice particles
+Wine bottle or coffee cup hero object
+Ambient light reflections
+Soft floating herbs
+Mouse-based parallax
+
+Avoid heavy 3D scenes that reduce loading speed.
+
+Performance Goals
+
+Lighthouse
+
+Performance
+
+100
+
+Accessibility
+
+100
+
+SEO
+
+100
+
+Best Practices
+
+100
+
+Page load
+
+<2 sec
+
+Images
+
+WebP/AVIF
+
+Lazy loading
+
+Code splitting
+
+SEO
+
+Schema.org
+
+Restaurant Schema
+
+Meta Tags
+
+OG Tags
+
+Twitter Cards
+
+Canonical
+
+Robots
+
+Sitemap
+
+Structured Data
+
+Local SEO
+
+Google Maps Integration
+
+Accessibility
+
+Keyboard navigation
+
+ARIA labels
+
+High contrast
+
+Reduced motion support
+
+Alt tags
+
+Focus states
+
+Pages
+
+Home
+
+About
+
+Menu
+
+Gallery
+
+Contact
+
+Privacy Policy
+
+Terms
+
+404
