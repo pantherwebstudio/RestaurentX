@@ -24,23 +24,38 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
     audio.volume = 0.55;
     audioRef.current = audio;
 
-    const startAudio = () => {
-      if (sessionStorage.getItem('rx_music_state') !== 'off' && audioRef.current) {
-        audioRef.current.play().then(() => {
-          setIsPlaying(true);
-        }).catch(() => {});
-      }
-    };
-
+    // Start audio muted initially to pass browser autoplay policy without errors
     if (shouldPlay) {
-      startAudio();
-      const events = ['pointerdown', 'touchstart', 'scroll', 'mousemove', 'keydown', 'click'];
-      const triggerImmediate = () => {
-        startAudio();
-        events.forEach((evt) => window.removeEventListener(evt, triggerImmediate));
+      audio.muted = true;
+      audio.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {});
+
+      // On ANY first user gesture (pointermove, scroll, touch, click, keydown), unmute and play sound
+      const unmuteAndPlay = () => {
+        if (sessionStorage.getItem('rx_music_state') !== 'off' && audioRef.current) {
+          audioRef.current.muted = false;
+          audioRef.current.volume = 0.55;
+          audioRef.current.play().then(() => {
+            setIsPlaying(true);
+          }).catch(() => {});
+        }
+        removeGestureListeners();
       };
 
-      events.forEach((evt) => window.addEventListener(evt, triggerImmediate, { passive: true, once: true }));
+      const events = ['pointermove', 'mousemove', 'pointerdown', 'touchstart', 'scroll', 'wheel', 'keydown', 'click', 'focus'];
+      
+      const removeGestureListeners = () => {
+        events.forEach((evt) => {
+          window.removeEventListener(evt, unmuteAndPlay);
+          document.removeEventListener(evt, unmuteAndPlay);
+        });
+      };
+
+      events.forEach((evt) => {
+        window.addEventListener(evt, unmuteAndPlay, { passive: true, once: true });
+        document.addEventListener(evt, unmuteAndPlay, { passive: true, once: true });
+      });
     }
 
     return () => {
@@ -57,6 +72,8 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
       setIsPlaying(false);
       sessionStorage.setItem('rx_music_state', 'off');
     } else {
+      audioRef.current.muted = false;
+      audioRef.current.volume = 0.55;
       audioRef.current.play().then(() => {
         setIsPlaying(true);
         sessionStorage.setItem('rx_music_state', 'on');
