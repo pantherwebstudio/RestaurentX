@@ -76,7 +76,7 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
           muted
           playsInline
           poster="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=85"
-          className="h-full w-full object-cover scale-105 filter brightness-[0.45] contrast-125 transition-transform duration-10000 hover:scale-100"
+          className="h-full w-full object-cover scale-105 filter brightness-[0.55] dark:brightness-[0.45] contrast-125 transition-transform duration-10000 hover:scale-100"
         >
           <source
             src="https://assets.mixkit.co/videos/preview/mixkit-chef-plating-a-gourmet-dish-in-a-restaurant-41484-large.mp4"
@@ -84,8 +84,8 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
           />
         </video>
 
-        {/* Dynamic Gradient Overlay for Light & Dark Mode */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/50 to-[var(--bg-primary)]/80 transition-colors duration-300" />
+        {/* Dynamic Warm Biscuit Gradient Overlay for Light Mode */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/75 to-[var(--bg-primary)]/90 transition-colors duration-300" />
         <div className="absolute inset-0 bg-grain pointer-events-none" />
       </div>
 
@@ -100,7 +100,7 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
         ) : (
           <VolumeX className="w-4 h-4 opacity-60" />
         )}
-        <span className="text-[10px] tracking-wider uppercase font-mono font-semibold text-[#C6A15B]">
+        <span className="text-[10px] tracking-wider uppercase font-mono font-bold text-[#C6A15B]">
           {isPlaying ? 'Jazz Music: Playing' : 'Jazz Music: Off'}
         </span>
       </button>
@@ -115,7 +115,7 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-[#C6A15B]/40 shadow-lg"
         >
           <span className="h-2 w-2 rounded-full bg-[#C6A15B] animate-ping" />
-          <span className="font-serif-luxury text-[10px] sm:text-xs tracking-[0.2em] text-[#C6A15B] font-semibold uppercase">
+          <span className="font-serif-luxury text-[10px] sm:text-xs tracking-[0.2em] text-[#C6A15B] font-bold uppercase">
             3 Michelin Stars • {RESTAURANT_INFO.city}
           </span>
         </motion.div>
@@ -145,7 +145,7 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
         >
           <button
             onClick={onOpenReservation}
-            className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#C6A15B] text-black font-semibold text-xs tracking-[0.18em] uppercase hover:bg-[#E5C383] transition-all duration-200 shadow-xl gold-glow flex items-center justify-center gap-2.5 interactive"
+            className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#C6A15B] text-black font-bold text-xs tracking-[0.18em] uppercase hover:bg-[#E5C383] transition-all duration-200 shadow-xl gold-glow flex items-center justify-center gap-2.5 interactive"
           >
             <Calendar className="w-4 h-4" />
             <span>Reserve Table via WhatsApp</span>
@@ -153,7 +153,7 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
 
           <button
             onClick={onExploreMenu}
-            className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 rounded-full border border-[#C6A15B]/50 glass-card text-theme-primary font-semibold text-xs tracking-[0.18em] uppercase hover:border-[#C6A15B] transition-all duration-200 flex items-center justify-center gap-2.5 interactive"
+            className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 rounded-full border border-[#C6A15B]/50 glass-card text-theme-primary font-bold text-xs tracking-[0.18em] uppercase hover:border-[#C6A15B] transition-all duration-200 flex items-center justify-center gap-2.5 interactive"
           >
             <Utensils className="w-4 h-4 text-[#C6A15B]" />
             <span>Explore Menu</span>
@@ -169,7 +169,7 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 cursor-pointer"
         onClick={onExploreMenu}
       >
-        <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#C6A15B] font-mono font-semibold">
+        <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#C6A15B] font-mono font-bold">
           Scroll To Discover
         </span>
         <motion.div

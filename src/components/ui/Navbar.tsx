@@ -69,7 +69,7 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? 'glass-nav py-4 shadow-2xl'
-            : 'bg-gradient-to-b from-[var(--bg-primary)]/90 via-[var(--bg-primary)]/40 to-transparent py-6'
+            : 'bg-gradient-to-b from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/50 to-transparent py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -96,7 +96,7 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative text-xs uppercase tracking-[0.25em] transition-colors hover:text-[#C6A15B] font-semibold ${
+                  className={`relative text-xs uppercase tracking-[0.25em] transition-colors hover:text-[#C6A15B] font-bold ${
                     isActive ? 'text-[#C6A15B]' : 'text-theme-primary'
                   }`}
                 >
@@ -127,7 +127,7 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
 
             <button
               onClick={onOpenReservation}
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/60 bg-emerald-600/10 text-emerald-600 dark:text-emerald-300 font-semibold text-xs uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-lg interactive"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-800 dark:bg-emerald-950/80 text-white dark:text-emerald-300 border border-emerald-600/80 font-bold text-xs uppercase tracking-widest hover:bg-emerald-700 transition-all duration-300 shadow-lg interactive"
             >
               <Smartphone className="w-3.5 h-3.5" />
               <span>WhatsApp Booking</span>
@@ -182,7 +182,7 @@ export default function Navbar({ onOpenReservation }: NavbarProps) {
                   setMobileMenuOpen(false);
                   onOpenReservation();
                 }}
-                className="w-full py-4 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-semibold text-xs tracking-widest uppercase flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg"
+                className="w-full py-4 rounded-full bg-gradient-to-r from-emerald-600 to-green-700 text-white font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg"
               >
                 <Smartphone className="w-4 h-4" />
                 <span>Reserve Table via WhatsApp</span>
