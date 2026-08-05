@@ -24,38 +24,60 @@ export default function HeroSection({ onOpenReservation, onExploreMenu }: HeroSe
     audio.volume = 0.55;
     audioRef.current = audio;
 
-    // Start audio muted initially to pass browser autoplay policy without errors
+    const playAudioNow = () => {
+      if (sessionStorage.getItem('rx_music_state') !== 'off' && audioRef.current) {
+        audioRef.current.muted = false;
+        audioRef.current.volume = 0.55;
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch(() => {
+          // If unmuted play fails, play muted then unmute
+          if (audioRef.current) {
+            audioRef.current.muted = true;
+            audioRef.current.play().then(() => {
+              setIsPlaying(true);
+            }).catch(() => {});
+          }
+        });
+      }
+    };
+
     if (shouldPlay) {
-      audio.muted = true;
-      audio.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {});
+      // 1. Attempt immediate play
+      playAudioNow();
 
-      // On ANY first user gesture (pointermove, scroll, touch, click, keydown), unmute and play sound
-      const unmuteAndPlay = () => {
-        if (sessionStorage.getItem('rx_music_state') !== 'off' && audioRef.current) {
-          audioRef.current.muted = false;
-          audioRef.current.volume = 0.55;
-          audioRef.current.play().then(() => {
-            setIsPlaying(true);
-          }).catch(() => {});
-        }
-        removeGestureListeners();
-      };
+      // 2. Fallback 3-second timer to start automatically after page load
+      const autoPlayTimer = setTimeout(() => {
+        playAudioNow();
+      }, 3000);
 
+      // 3. Early user interaction listeners to start instantly on any gesture
       const events = ['pointermove', 'mousemove', 'pointerdown', 'touchstart', 'scroll', 'wheel', 'keydown', 'click', 'focus'];
 
-      const removeGestureListeners = () => {
+      const triggerOnGesture = () => {
+        playAudioNow();
+        removeListeners();
+      };
+
+      const removeListeners = () => {
+        clearTimeout(autoPlayTimer);
         events.forEach((evt) => {
-          window.removeEventListener(evt, unmuteAndPlay);
-          document.removeEventListener(evt, unmuteAndPlay);
+          window.removeEventListener(evt, triggerOnGesture);
+          document.removeEventListener(evt, triggerOnGesture);
         });
       };
 
       events.forEach((evt) => {
-        window.addEventListener(evt, unmuteAndPlay, { passive: true, once: true });
-        document.addEventListener(evt, unmuteAndPlay, { passive: true, once: true });
+        window.addEventListener(evt, triggerOnGesture, { passive: true, once: true });
+        document.addEventListener(evt, triggerOnGesture, { passive: true, once: true });
       });
+
+      return () => {
+        clearTimeout(autoPlayTimer);
+        removeListeners();
+        audio.pause();
+        audio.src = '';
+      };
     }
 
     return () => {
