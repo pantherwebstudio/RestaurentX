@@ -12,7 +12,7 @@ interface FeaturedDishesSectionProps {
 
 export default function FeaturedDishesSection({ onSelectDish, onViewAllMenu }: FeaturedDishesSectionProps) {
   return (
-    <section id="featured-dishes" className="relative py-20 md:py-28 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section id="featured-dishes" className="relative py-14 md:py-20 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       {/* Background Accent */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 md:w-96 h-80 md:h-96 bg-[#C6A15B]/5 blur-[140px] pointer-events-none" />
 

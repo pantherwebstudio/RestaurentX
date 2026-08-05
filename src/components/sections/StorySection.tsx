@@ -7,7 +7,7 @@ import { STORY_TIMELINE, RESTAURANT_INFO } from '@/data/restaurantData';
 
 export default function StorySection() {
   return (
-    <section id="story" className="relative py-20 md:py-32 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section id="story" className="relative py-14 md:py-20 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Image Showcase */}

@@ -18,19 +18,19 @@
   }
 
   [data-theme="light"], .light {
-    --bg-primary: #FAF8F5;
-    --bg-secondary: #F2EFE8;
+    --bg-primary: #ECE5D8;
+    --bg-secondary: #E3DAC9;
     --bg-card: #FFFFFF;
-    --gold-primary: #9E7425;
-    --gold-light: #C6A15B;
-    --gold-dark: #705012;
-    --text-primary: #121110;
-    --text-muted: #332F2A;
-    --border-gold: rgba(158, 116, 37, 0.35);
+    --gold-primary: #8F651C;
+    --gold-light: #B38637;
+    --gold-dark: #63450E;
+    --text-primary: #141210;
+    --text-muted: #3D3831;
+    --border-gold: rgba(143, 101, 28, 0.35);
     --border-subtle: rgba(0, 0, 0, 0.12);
     --input-bg: #FFFFFF;
-    --input-text: #121110;
-    --shadow-card: 0 10px 35px rgba(0, 0, 0, 0.08);
+    --input-text: #141210;
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -126,7 +126,7 @@ body {
 }
 
 .glass-nav {
-  background: var(--bg-card) !important;
+  background: var(--bg-primary) !important;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-gold) !important;

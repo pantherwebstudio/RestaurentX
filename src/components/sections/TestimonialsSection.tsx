@@ -20,7 +20,7 @@ export default function TestimonialsSection() {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section className="relative py-14 md:py-20 overflow-hidden bg-theme-primary text-theme-primary border-t border-[#C6A15B]/15 transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Header */}
         <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto mb-12 sm:mb-16">

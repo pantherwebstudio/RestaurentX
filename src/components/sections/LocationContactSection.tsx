@@ -25,7 +25,7 @@ export default function LocationContactSection({ onOpenReservation }: LocationCo
   };
 
   return (
-    <section id="contact" className="relative py-20 md:py-32 bg-theme-primary text-theme-primary overflow-hidden border-t border-[#C6A15B]/15 transition-colors duration-300">
+    <section id="contact" className="relative py-14 md:py-20 bg-theme-primary text-theme-primary overflow-hidden border-t border-[#C6A15B]/15 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         {/* Header */}
         <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto mb-12 sm:mb-20">
