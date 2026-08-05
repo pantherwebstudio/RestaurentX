@@ -32,7 +32,7 @@ export default function ChefSection() {
                   Master Culinary Artisan
                 </span>
               </div>
-              <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light leading-tight text-theme-primary">
+              <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light leading-tight text-theme-primary break-words">
                 {RESTAURANT_INFO.chefName}
               </h2>
             </div>
@@ -52,13 +52,13 @@ export default function ChefSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08, duration: 0.3 }}
-                    className="p-3.5 sm:p-4 rounded-xl glass-card border border-[#C6A15B]/25 text-center space-y-1"
+                    className="p-3 sm:p-4 rounded-xl glass-card border border-[#C6A15B]/25 text-center space-y-1 overflow-hidden"
                   >
-                    <IconComponent className="w-5 h-5 text-[#C6A15B] mx-auto mb-1" />
-                    <div className="font-mono text-2xl sm:text-3xl text-[#C6A15B] font-bold">
+                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-gold mx-auto mb-1" />
+                    <div className="font-mono text-xl sm:text-3xl text-gold font-bold truncate">
                       {stat.value}
                     </div>
-                    <div className="text-[10px] uppercase tracking-wider text-theme-muted font-mono font-semibold">
+                    <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-theme-muted font-mono font-semibold truncate">
                       {stat.label}
                     </div>
                   </motion.div>
@@ -75,7 +75,7 @@ export default function ChefSection() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative h-[420px] sm:h-[500px] w-full rounded-2xl overflow-hidden glass-card border border-[#C6A15B]/30 shadow-2xl">
+            <div className="relative h-[380px] sm:h-[480px] w-full rounded-2xl overflow-hidden glass-card border border-[#C6A15B]/30 shadow-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=85"
                 alt={RESTAURANT_INFO.chefName}
@@ -83,16 +83,16 @@ export default function ChefSection() {
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-transparent" />
 
-              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-xl glass-card border border-[#C6A15B]/30 space-y-1">
-                <span className="text-[10px] uppercase tracking-widest text-[#C6A15B] font-mono font-semibold">
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-card border border-[#C6A15B]/30 space-y-1 overflow-hidden">
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gold font-mono font-bold">
                   Chef & Culinary Director
                 </span>
                 <h4 className="font-serif-luxury text-base sm:text-lg text-theme-primary">
                   {RESTAURANT_INFO.chefName}
                 </h4>
-                <p className="text-[11px] text-theme-muted italic">
+                <p className="text-[11px] text-theme-muted italic line-clamp-2">
                   “Gastronomy is the only art form that engages all five senses simultaneously.”
                 </p>
               </div>
