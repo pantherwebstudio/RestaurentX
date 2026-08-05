@@ -21,8 +21,8 @@ export default function FeaturedDishesSection({ onSelectDish, onViewAllMenu }: F
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-4 sm:gap-6">
           <div className="space-y-2 sm:space-y-3">
             <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#C6A15B]" />
-              <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
+              <span className="h-px w-8 bg-gold opacity-60" />
+              <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-gold font-bold">
                 Culinary Highlights
               </span>
             </div>

@@ -21,16 +21,16 @@
     --bg-primary: #EBE3D3;
     --bg-secondary: #E0D7C4;
     --bg-card: #FFFFFF;
-    --gold-primary: #855C14;
-    --gold-light: #A3792C;
-    --gold-dark: #573B0A;
-    --text-primary: #12100E;
-    --text-muted: #38332C;
-    --border-gold: rgba(133, 92, 20, 0.35);
-    --border-subtle: rgba(0, 0, 0, 0.12);
+    --gold-primary: #6E4909;
+    --gold-light: #8C5F11;
+    --gold-dark: #452D04;
+    --text-primary: #0A0908;
+    --text-muted: #24201A;
+    --border-gold: rgba(110, 73, 9, 0.4);
+    --border-subtle: rgba(0, 0, 0, 0.15);
     --input-bg: #FFFFFF;
-    --input-text: #12100E;
-    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --input-text: #0A0908;
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -160,7 +160,7 @@ input, select, textarea {
 
 input::placeholder, textarea::placeholder {
   color: var(--text-muted) !important;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 option {

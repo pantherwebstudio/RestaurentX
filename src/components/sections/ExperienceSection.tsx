@@ -46,11 +46,11 @@ export default function ExperienceSection() {
         {/* Header */}
         <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto mb-12 sm:mb-20">
           <div className="flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-[#C6A15B]" />
-            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
+            <span className="h-px w-8 bg-gold opacity-60" />
+            <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-gold font-bold">
               The RestaurantX Experience
             </span>
-            <span className="h-px w-8 bg-[#C6A15B]" />
+            <span className="h-px w-8 bg-gold opacity-60" />
           </div>
           <h2 className="font-serif-luxury text-3xl sm:text-5xl md:text-6xl font-light text-theme-primary">
             Sensory Pillars of <span className="italic font-normal text-gold-gradient">Perfection</span>

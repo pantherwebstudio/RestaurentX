@@ -51,8 +51,8 @@ export default function StorySection() {
           >
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-[#C6A15B]" />
-                <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-[#C6A15B] font-semibold">
+                <span className="h-px w-8 bg-gold opacity-60" />
+                <span className="font-serif-luxury text-xs tracking-[0.3em] uppercase text-gold font-bold">
                   Our Philosophy
                 </span>
               </div>
